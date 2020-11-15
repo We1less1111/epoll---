@@ -14,8 +14,8 @@
 make之后，再执行ip.sh，即可出现myserver、myclien可执行文件，直接启动可执行文件就完成了。
 
 # 3、功能讲解
--（1）群发。默认情况下，每一个客户端连接上，都会有一个唯一name标识。当客户端发送数据时，当前所有连接上的客户端都会接收到。
--（2）私聊。可以通过setname liliya，先将客户端name标识更新为liliya。其他用户通过pchat liliya Are you ok，即可将消息私发消息给liliya
+- （1）群发。默认情况下，每一个客户端连接上，都会有一个唯一name标识。当客户端发送数据时，当前所有连接上的客户端都会接收到。
+- （2）私聊。可以通过setname liliya，先将客户端name标识更新为liliya。其他用户通过pchat liliya Are you ok，即可将消息私发消息给liliya
 
 # 4、并发量测试
 
