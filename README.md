@@ -24,3 +24,6 @@ make之后，再执行ip.sh，即可出现myserver、myclien可执行文件，�
 当QPS为2000时，性能完全ok，在2ms内便能完成响应
 当QPS达到1w时，也能处理，但性能会急速下降，平均需要2.5s才能完成响应
 
+# 5、csdn详细介绍地址
+https://blog.csdn.net/qq_35475714/article/details/109706465
+
