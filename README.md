@@ -12,6 +12,7 @@
 
 # 2、运行
 make之后，再执行ip.sh，即可出现myserver、myclien可执行文件，直接启动可执行文件就完成了。
+如果编译出现`struct addrinfo storage size isn't known`错误，可以参考本人解决方法，修改操作系统头文件/usr/include/netdb.h，将此宏__USE_XOPEN2K注释，如下图(注意#ifdef与#endif是一一对应的)
 
 # 3、功能讲解
 - （1）群发。默认情况下，每一个客户端连接上，都会有一个唯一name标识。当客户端发送数据时，当前所有连接上的客户端都会接收到。
@@ -26,4 +27,6 @@ make之后，再执行ip.sh，即可出现myserver、myclien可执行文件，�
 
 # 5、csdn详细介绍地址
 https://blog.csdn.net/qq_35475714/article/details/109706465
+
+
 
