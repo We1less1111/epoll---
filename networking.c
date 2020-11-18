@@ -2,7 +2,7 @@
 #define NETWORKING_H
 #include "ae.h"
 #include "myserver.h"
-#define MAX_ACCEPTS_PER_CALL 1000
+#define MAX_ACCEPTS_PER_CALL 100
 #define CLIENT_CLOSE_AFTER_REPLY (1<<6) 
 #define CONFIG_DEFAULT_MAX_CLIENTS 10000
 #define CLIENT_UNIX_SOCKET (1<<11)
@@ -153,8 +153,17 @@ static void acceptCommonHandler(int fd, int flags, char *ip) {
 static void acceptTcpHandler(aeEventLoop *el, int fd, void *privdata, int mask) {
     int cport, cfd, max = MAX_ACCEPTS_PER_CALL; 
     char cip[46];
+	while(max--) {
 	cfd = anetTcpAccept(server.neterr, fd, cip, sizeof(cip), &cport);
+	if (cfd == ANET_ERR) {
+	    return;
+	}
+	printf("Accepted %s:%d\n", cip, cport);
 	acceptCommonHandler(cfd,0,cip);
+	 server.mc.fds[server.mc.length] = cfd;
+	server.mc.length += 1;
+	}
+
 	
 }
 static  int writeToClient(int fd, client *c, int handler_installed) {
